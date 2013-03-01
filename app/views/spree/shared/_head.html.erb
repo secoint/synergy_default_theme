@@ -6,6 +6,6 @@
 <%= stylesheet_link_tag 'store/all', :media => 'screen' %>
 <%= csrf_meta_tags %>
 <%= javascript_include_tag 'store/all' %>
-<%= render 'shared/synergy_compare_products_js' if defined?(SpreeCompareProducts) %>
-<%= render 'shared/jgrowl_startup' %>
+<%= render 'spree/shared/synergy_compare_products_js' if defined?(SpreeCompareProducts) %>
+<%= render 'spree/shared/jgrowl_startup' %>
 <%= yield :head %>

@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head data-hook="inside_head">
-  <%= render 'shared/head' %>
+  <%= render 'spree/shared/head' %>
 </head>
 
 <body class="<%= body_class %>" id="<%= @body_id || 'default' %>" data-hook="body">
@@ -12,7 +12,7 @@
       <ul>
         <li class="header_panel_logo">
           <div><%= link_to image_tag("store/logo.png", :alt => "Synergy logo"), root_url %></div></li>
-        <li class="header_panel_search"><%= render 'shared/search' %></li>
+        <li class="header_panel_search"><%= render 'spree/shared/search' %></li>
         <li class="header_panel_cart">
           <div><%= link_to_cart %></div>
         </li>
@@ -41,7 +41,7 @@
         </div>
         <div id="header_menu">
           <ul class="header_menu">
-            <% for page in Page.header_links do %>
+            <% for page in Spree::Page.header_links do %>
               <li><%= link_to page.title, page.link %></li>
             <% end %>
           </ul>
@@ -52,10 +52,10 @@
         <div class="sidebar" data-hook="sidebar">
             <%= yield :sidebar %>
 
-          <% if Page.sidebar_links.any? %>
+          <% if Spree::Page.sidebar_links.any? %>
           <div id="sidebar_menu">
             <ul class="sidebar_menu">
-              <% for page in Page.sidebar_links do %>
+              <% for page in Spree::Page.sidebar_links do %>
                 <li><%= link_to page.title, page.link %></li>
               <% end %>
             </ul>
@@ -84,7 +84,7 @@
 <div class="footer" align="center">
 <% cache 'footer_menu' do %>
   <ul class="footer_menu">
-    <% for page in Page.footer_links do %>
+    <% for page in Spree::Page.footer_links do %>
       <li><%= link_to page.title, page.link %></li>
     <% end %>
   </ul>
@@ -92,7 +92,7 @@
 </div>
 <div data-hook="footer_right"></div>
 <% cache 'google_analytics' do %>
-  <%= render 'shared/google_analytics' %>
+  <%= render 'spree/shared/google_analytics' %>
 <% end %>
 </body>
 </html>

@@ -1,9 +1,9 @@
 module Spree
-  class HomeController < Spree::BaseController
-    helper 'spree/products', 'spree/taxons'
+  class HomeController < StoreController
+    helper 'spree/products', 'spree/taxons', 'spree/analytics'
 
     def index
-      home_taxonomy = get_taxonomies.find{|t| t.show_on_homepage? }
+      home_taxonomy = view_context.get_taxonomies.find{|t| t.show_on_homepage? }
       @taxons = home_taxonomy ? home_taxonomy.root.children : []
     end
   end

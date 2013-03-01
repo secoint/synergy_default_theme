@@ -1,4 +1,4 @@
-ProductsHelper.module_eval do
+Spree::ProductsHelper.module_eval do
   def variant_price_diff(variant)
     return product_price(variant) unless variant.product.master.price
     diff = product_price(variant, :format_as_currency => false) - product_price(variant.product, :format_as_currency => false)

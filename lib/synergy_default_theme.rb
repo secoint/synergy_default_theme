@@ -3,6 +3,8 @@ require 'spree_core'
 module SynergyDefaultTheme
   class Engine < Rails::Engine
 
+    engine_name 'synergy_default_theme'
+
     config.autoload_paths += %W(#{config.root}/lib)
 
     def self.activate
@@ -10,18 +12,18 @@ module SynergyDefaultTheme
         Rails.env.production? ? require(c) : load(c)
       end
       
-      Admin::PagesController.cache_sweeper :page_sweeper
-      Admin::TrackersController.cache_sweeper :tracker_sweeper
+      # Admin::PagesController.cache_sweeper :page_sweeper
+      # Admin::TrackersController.cache_sweeper :tracker_sweeper
       
       if defined?(Spree::RecentlyViewed) && Spree::RecentlyViewed::Config.instance
         Spree::RecentlyViewed::Config.set :recently_viewed_products_max_count => 3
       end
       
-      if Spree::Config.instance
+      if Spree::Config
         Spree::Config.set :products_per_page => 9
       end
 
-      Image.attachment_definitions[:attachment].merge!({
+      Spree::Image.attachment_definitions[:attachment].merge!({
         :styles => {
                 :mini    => '40x40>',
                 :small   => '120x120>',

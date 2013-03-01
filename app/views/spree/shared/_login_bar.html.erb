@@ -2,7 +2,7 @@
   <%= t(:hello_user) %>, <%= link_to current_user.email, account_path %>!
   <%= link_to t('logout'), destroy_user_session_path, {:id => 'log_out_link'} %>
 <% else %>
-  <%= link_to t('log_in'), login_path, {:id => 'log_in_link', :rel => '#login_overlay'} %>
+  <%= link_to t('login'), login_path, {:id => 'log_in_link', :rel => '#login_overlay'} %>
   <div class="simple_overlay" id="login_overlay" style="display: none">
     <% if defined?(SpreeSocial) %>
     <div class="login_social_bar">
@@ -19,7 +19,7 @@
       <div style="padding: 6px 0"><%= link_to t("forgot_password"), new_user_password_path %></div>
     </div>
     <div class="login_form_bar">
-      <%= render :partial => "shared/login" %>
+      <%= render :partial => "spree/shared/login" %>
     </div>
   </div>
 <% end %>

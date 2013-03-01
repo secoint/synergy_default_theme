@@ -12,7 +12,7 @@
 <ul class="product-listing">
   <% products.each do |product| %>
     <% if Spree::Config[:show_zero_stock_products] || product.has_stock? %>
-        <%= render :partial => "shared/product", :locals => { :product => product } %>
+        <%= render 'spree/shared/product', :product => product %>
     <% end %>
   <% end %>
 </ul>

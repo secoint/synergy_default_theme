@@ -6,6 +6,6 @@
   <div class="taxon">
     <h2><%= taxon.name %></h2>
 
-    <%= render :partial => "spree/shared/products", :locals => {:products => taxon_preview(taxon, 6), :taxon => taxon} %>
+    <%= render 'spree/shared/products', :products => taxon_preview(taxon, 6), :taxon => taxon %>
   </div>
 <% end %>

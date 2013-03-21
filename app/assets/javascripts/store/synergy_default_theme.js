@@ -1,2 +1,2 @@
-//= require jquery.jgrowl.min
+//= require jquery.jgrowl
 // require jquery.tools.min

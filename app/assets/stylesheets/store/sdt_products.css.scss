@@ -1,0 +1,139 @@
+.subtaxon-title{
+  @extend h1;
+  color: $gray;
+}
+.product-listing{
+  font-size: 0;
+  padding: 0;
+}
+.product-listing li{
+  display: inline-block;
+  vertical-align: top;
+  width: $content_width / $product_columns_count - 2;
+  min-height: $product_list_item_min_height;
+  margin: 0 0 15px 0;
+  padding: 2em 0 0 0;
+  border: 1px solid #FFF;
+  @include border_radius(5px);
+  font-size: $base_font_size;
+  text-align: center;
+
+  &:hover{
+    border-color: $gray_light;
+  }
+  a{
+    color: #000;
+    text-decoration: none;
+  }
+  .price{
+    line-height: 32px;
+    font-size: 20px;
+  }
+  .product-image-wrapper{
+    margin: 10px 0;
+  }
+}
+
+.product-section-title{
+  @extend h3;
+}
+
+#product-images {
+  width: 210px;
+  float: left;
+}
+#product-images h2 {
+  color: #502559;
+  font-weight: bold;
+  margin: 1em 0 0.6em;
+  clear: both;
+}
+#main-image {
+  display: table-cell;
+  margin-bottom: 1em;
+  height: 210px;
+  width: 200px;
+  text-align: center;
+  vertical-align: middle;
+}
+#main-image a{
+  display: block;
+  width: 200px;
+}
+#thumbnails {
+  margin-top: 1em;
+  width: $content_width - 440;
+}
+.thumbnails{
+  font-size: 0;
+  li{
+    display: inline-block;
+    width: 42px;
+    height: 42px;
+    margin: 0 4px 4px 0;
+    border: 1px solid $gray_light;
+    &.selected{
+      border-color: $gray;
+    }
+  }
+}
+
+#product-description {
+  display: block;
+  width: $content_width - 220;
+  float: right;
+}
+
+.description-content {
+  margin-right: 220px;
+}
+
+#product-properties .property-type {
+  width: 250px;
+  font-weight: bold;
+}
+
+#cart_wrapper {
+  text-align: right;
+  float: right;
+  width: 220px;
+  .prices{
+    margin-bottom: .4em;
+    line-height: 36px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: right;
+    color: #000;
+  }
+}
+.add-to-cart {
+  background-color: #e9ebee;
+  box-shadow: inset 0 -5px 5px #e9ebee;
+  margin-top: .4em;
+}
+.add-to-cart:hover {
+  box-shadow: inset 0 -5px 5px white;
+}
+#product-variants {
+  text-align: left;
+  h2{
+    line-height: $base_line_height;
+    font-size: $base_font_size + 2;
+    font-weight: bold;
+    margin: 1em 0 .6em 0;
+    color: $blue_alt;
+  }
+  ul{
+    padding: 0;
+    list-style-type: none;
+  }
+  .variant-description{
+    font-weight: bold;
+  }
+  .price {
+    font-size: 12px;
+    white-space: nowrap;
+    font-weight: normal;
+  }
+}
+

@@ -6,64 +6,63 @@
 
 <body class="<%= body_class %>" id="<%= @body_id || 'default' %>" data-hook="body">
 
-<div class="wrapper">
-  <div class="main_top" align="center">
-    <div class="header_panel">
+<div id="wrapper">
+  <div id="header_row">
+    <div id="header">
       <ul>
-        <li class="header_panel_logo">
-          <div><%= link_to image_tag("store/logo.png", :alt => "Synergy logo"), root_url %></div></li>
-        <li class="header_panel_search"><%= render 'spree/shared/search' %></li>
-        <li class="header_panel_cart">
+        <li class="logo">
+          <div><%= link_to image_tag("store/logo.png", :alt => "Synergy logo"), root_url %></div>
+        </li>
+        <li class="search"><%= render 'spree/shared/search' %></li>
+        <li class="cart">
           <div><%= link_to_cart %></div>
         </li>
         <% if defined?(SpreeCompareProducts) %>
-        <li class="header_panel_compare_product">
-            <div><%= link_to(t(:product_comparison, :scope => :compare_products) + (@comparable_products.size > 0 ? " (#{@comparable_products.count})" : ""),
-                             compare_products_path, :id => "compare_products") %></div>
-            <div id="tooltip" class="tooltip" style="display: none">
-              <div class="tooltip_top"></div>
-              <div class="tooltip_middle">
-                <div style="font-size: 0px">&nbsp;</div>
-                <div class="tooltip_content" id="tooltip_content"></div>
-                <div style="font-size: 0px">&nbsp;</div>
+          <li class="compare_product">
+              <div><%= link_to(t(:product_comparison, :scope => :compare_products) + (@comparable_products.size > 0 ? " (#{@comparable_products.count})" : ""),
+                               compare_products_path, :id => "compare_products") %></div>
+              <div id="tooltip" class="tooltip" style="display: none">
+                <div class="tooltip_top"></div>
+                <div class="tooltip_middle">
+                  <div style="font-size: 0px">&nbsp;</div>
+                  <div class="tooltip_content" id="tooltip_content"></div>
+                  <div style="font-size: 0px">&nbsp;</div>
+                </div>
+                <div class="tooltip_bottom"></div>
               </div>
-              <div class="tooltip_bottom"></div>
-            </div>
-        </li>
+          </li>
         <% end %>
       </ul>
     </div>
   </div>
-  <div align="center">
-    <div class="fixed_width">
+
+  <div id="main_row">
+    <div id="main">
       <div id="top_panel">
-        <div id="top_login_bar" data-hook="shared_login_bar">
+        <div id="login_bar" data-hook="shared_login_bar">
         </div>
-        <div id="header_menu">
-          <ul class="header_menu">
-            <% for page in Spree::Page.header_links do %>
-              <li><%= link_to page.title, page.link %></li>
-            <% end %>
-          </ul>
-        </div>
+        <ul id="header_menu">
+          <% for page in Spree::Page.header_links do %>
+            <li><%= link_to page.title, page.link %></li>
+          <% end %>
+        </ul>
       </div>
       <%= render :partial => 'shared/comparable_products' if defined?(SpreeCompareProducts) %>
       <% if content_for?(:sidebar) %>
-        <div class="sidebar" data-hook="sidebar">
+        <div id="sidebar" data-hook="sidebar">
             <%= yield :sidebar %>
-
           <% if Spree::Page.sidebar_links.any? %>
-          <div id="sidebar_menu">
-            <ul class="sidebar_menu">
-              <% for page in Spree::Page.sidebar_links do %>
-                <li><%= link_to page.title, page.link %></li>
-              <% end %>
-            </ul>
-          </div>
+            <div id="sidebar_pages_menu" class="navigation sidebar-item">
+              <ul>
+                <% for page in Spree::Page.sidebar_links do %>
+                  <li><%= link_to page.title, page.link %></li>
+                <% end %>
+              </ul>
+            </div>
           <% end %>
         </div>
       <% end %>
-      <div id="content" class="content">
+      <div id="content">
         <%= flash_messages %>
         <noscript>
           <% if flash[:notice] %>
@@ -78,17 +77,19 @@
       <div style="height: 10px;"></div>
     </div>
   </div>
-  <div class="footer_fake"></div>
+  <div id="footer_fake"></div>
 </div>
 
-<div class="footer" align="center">
-<% cache 'footer_menu' do %>
-  <ul class="footer_menu">
-    <% for page in Spree::Page.footer_links do %>
-      <li><%= link_to page.title, page.link %></li>
-    <% end %>
-  </ul>
-<% end %>
+<div id="footer_row">
+  <div id="footer">
+  <% cache 'footer_menu' do %>
+    <ul id="footer_menu">
+      <% for page in Spree::Page.footer_links do %>
+        <li><%= link_to page.title, page.link %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  </div>
 </div>
 <div data-hook="footer_right"></div>
 <% cache 'google_analytics' do %>

@@ -1,5 +1,5 @@
 Deface::Override.new(
-    :virtual_path => "shared/_products",
+    :virtual_path => "spree/shared/_products",
     :replace => "[data-hook='products_list_item']",
-    :partial => "shared/product",
+    :partial => "spree/shared/product",
     :name => "sdt_products_list_item")

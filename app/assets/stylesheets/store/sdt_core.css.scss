@@ -1,0 +1,374 @@
+html, body{
+  height: 100%;
+}
+
+body{
+  background: $body_background;
+  font-family: $base_font_family;
+  font-size: $base_font_size;
+  line-height: $base_line_height;
+  color: $text_color;
+}
+
+a{
+  @include default_link;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: $headings_font_family;
+  font-weight: normal;
+  clear: both;
+  a{
+    text-decoration: none;
+    &:hover{
+      text-decoration: underline;
+    }
+    &, &:hover{
+      color: inherit;
+    }
+  }
+}
+h1{ font-size: $base_font_size + 10; line-height: $base_font_size + 14; }
+h2{ font-size: $base_font_size + 8;  line-height: $base_font_size + 12; }
+h3{ font-size: $base_font_size + 6;  line-height: $base_font_size + 10; }
+h1{
+  margin-bottom: $base_line_height;
+  padding-bottom: $base_line_height / 2;
+  border-bottom: 1px solid $gray;
+  color: $gray_dark;
+}
+h2, h3, h4, h5, h6{
+  margin: $base_line_height 0;
+}
+h3, h4, h5, h6{
+  color: $blue_alt;
+}
+h2{
+  color: $gray;
+}
+
+* + p { 
+  margin: $base_line_height / 2 0; 
+}
+
+ul, ol{
+  padding-left: 15px;
+}
+
+// Forms
+// ----------------
+
+form{
+  .req{
+    margin-left: 5px;
+    color: $red;
+  }
+}
+fieldset{
+  margin-bottom: $base_line_height;
+}
+legend{
+  font-size: $base_font_size * 1.5;
+  font-weight: bold;
+  & + *{
+    margin-top: $base_line_height;
+  }
+}
+label{ 
+  font-weight: bold; 
+  &.error {
+    color: $error_color;
+    display: inline-block;
+    margin-left: 5px;
+    font-size: 11px;
+  }
+}
+
+
+input[type="submit"], input[type="button"],
+input[type= "reset"], button, a.button{
+  display: inline-block;
+  *display: inline; 
+  *zoom: 1;
+  width: auto;
+  height: auto;
+  line-height: 1.2em;
+  margin: 0;
+  overflow: visible;
+  padding: 4px 17px;
+  @include border-radius(5px);
+  -moz-outline-radius: 5px;
+  background: #efefef image_url('store/bg-button.png') center left repeat-x;
+  border: 1px solid $gray;
+  text-decoration: none;
+  cursor: pointer;
+  color: #111111;
+  font-family: Helvetica Neue, Helvetica, Arial, Sans-serif;
+  font-size: 1.1em;
+  font-size-adjust: none;
+  font-stretch: normal;
+  font-variant: normal;
+
+  &:hover{
+    background-image: image_url('store/bg-button-hover.png');
+  }
+}
+
+.errorExplanation {
+  margin-bottom: $base_line_height;
+  padding: 10px;
+  @include border_radius(5px);
+  background: #f4b4b4;
+  border: 1px solid $gray;
+  h2{
+    font-weight: bold;
+    font-size: $base_font_size;
+    margin: 0px;
+  }
+  p, ul{ 
+    margin: 0px; 
+  }
+}
+
+
+// Tables
+//---------------
+
+table{
+  margin-bottom: 1.4em;
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td{ 
+  text-align: left;
+  vertical-align: middle;
+}
+th{
+  padding: 8px 10px 8px 5px;
+  border-bottom: 1px solid $gray_light;
+  background: #CED2D6 image_url("store/cart_th_bg.png") repeat-x;
+  &:first-child {
+    width: 420px;
+  }
+}
+td{
+  padding: 4px 10px 4px 5px; 
+}
+tr.even td{
+  background: #FDF3E8;
+}
+
+// Misc
+// -----------------
+
+.clear{
+  display: block;
+  width: 100%;
+  height: 0;  
+  margin: 0;
+  padding: 0;
+  border: none;
+  clear: both;
+}
+
+// General layout
+// ----------------
+
+#wrapper{
+  min-height: 100%;
+}
+
+#header, #main, #footer{
+  width: $base_width;
+  margin: 0 auto;
+  padding: 0 $base_horizontal_padding;
+}
+
+body.two-col{
+  #content{
+    width: $content_width;
+    float: right;
+  }
+}
+
+#sidebar{
+  width: $sidebar_width; 
+  float: left;
+}
+
+#footer_fake {
+  height: 150px;
+  clear: both;
+}
+
+#footer {
+  height: 124px;
+  margin-top: -124px;
+  background: image_url("store/footer_panel.png") center top no-repeat;
+}
+
+// Header
+//---------------
+
+#header{
+  display: table;
+  height: 102px;
+  margin-top: 4px;
+  background: image_url("store/header_panel.png") no-repeat;
+  a{
+    color: $gray_darker;
+    text-decoration: none;
+  }
+  img{
+    vertical-align: middle;    
+  }
+  ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: table-row;
+    li {
+      height: 94px;
+      vertical-align: middle;
+      display: table-cell;
+      &.logo{
+        width: 225px;
+        padding-right: 20px;
+        text-align: center;
+      }
+      &.search{
+        padding-left: 16px;
+        width: 400px;
+        #keywords {
+          width: 250px;
+          height: 22px;
+          background: image_url("store/search_textinput.png") no-repeat;
+          border: none;
+          vertical-align: bottom;
+          padding-left: 10px;
+          &:focus {
+            background: image_url("store/search_textinput_active.png") no-repeat;
+          }
+        }
+        #keywords_submit {
+          width: 94px;
+          height: 24px;
+          background: image_url("store/search_button.png") no-repeat;
+          border: none;
+          vertical-align: bottom;
+          color: white;
+          padding-bottom: 3px;
+          cursor: pointer;
+          @include border-radius(0);
+          &:hover {
+            background-position: 0 -24px;
+          }
+        }
+      }
+      &.cart a, &.compare_product a{
+        padding: 10px 0 10px 29px;
+      }
+      &.cart a{
+        background: image_url("store/cart.png") no-repeat 0 50%;
+      }
+      &.compare_product a{
+        background: image_url("store/libra.png") no-repeat 0 50%;
+      }
+    }
+  }
+}
+
+#top_panel {
+  height: 4em;
+  padding-top: 1em;
+}
+
+#login_bar{
+  float: left;
+}
+
+// Sidebar
+//---------------
+
+#sidebar{
+  h6{
+    @extend h1;
+    margin-bottom: $base_line_height / 2;
+    color: $gray;
+  }
+  .sidebar-item, #sidebar_products_search{
+    margin-bottom: $base_line_height * 3;
+  }
+}
+
+// Menus
+//---------------
+
+#header_menu a, #sidebar .navigation li a{
+  @include gray_dark_link;
+}
+
+#header_menu{
+  margin: 0;
+  padding: 0;
+  float: right;
+  list-style-type: none;
+  li{
+    float: left;
+    margin-left: 1em;
+  }
+}
+
+#sidebar .navigation{
+  & > ul{
+    margin: 0 5px $base_line_height 5px;
+  }
+  ul{
+    padding: 0;
+    list-style-type: none;
+    font-size: $base_font_size + 1;
+    li{
+      label{
+        font-weight: normal;
+        color: $gray_darker;
+      }
+      &.current>a{
+        font-weight: bold;
+      }
+      ul{
+        margin-left: 1em;
+      }
+    }
+  }
+}
+
+#sidebar_pages_menu{
+  background: $gray_lighter;
+  padding: 1em;
+  ul{
+    margin: 0 !important;
+  }
+}
+
+#footer_menu{
+  margin-top: 40px;
+  float: right;
+  margin-right: 4em;
+  list-style: none;
+  li {
+    float: left;
+    margin-left: 1em;
+    a {
+      color: #FFF;
+    }
+  }
+}
+
+// Misc
+// -----------------
+
+#existing-customer, #new-customer, #forgot-password{
+  h6{
+    @extend h1;
+  }
+}

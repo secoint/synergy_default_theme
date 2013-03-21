@@ -1,9 +1,9 @@
 ru:
   activerecord:
     attributes:
-      user:
+      spree/user:
         email: "Электронная почта"
-      taxonomy:
+      spree/taxonomy:
         show_on_homepage: "отображать на главной странице"
 
   number:

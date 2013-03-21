@@ -1,11 +1,11 @@
 <%
-  paginated_products = @searcher.products if params.key?(:keywords)
+  paginated_products = @searcher.retrieve_products if params.key?(:keywords)
   paginated_products ||= products
 %>
 <% if products.empty? %>
   <%= t(:no_products_found) %>
 <% elsif params.key?(:keywords) %>
-  <h3><%= t(:search_results, :keywords => h(params[:keywords])) %></h3>
+  <h1><%= t(:search_results, :keywords => h(params[:keywords])) %></h1>
 <% end %>
  
 <% if products.any? %>

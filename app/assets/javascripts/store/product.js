@@ -10,7 +10,7 @@ var add_image_handlers = function() {
     $('#large_image_overlay .large_image img').attr('src', selectedThumb.attr('large'));
     e.preventDefault();
   });
-
+  /*
   $('#main-image a').click(function() {
     var thumbs = getThumbnails();
 
@@ -51,7 +51,7 @@ var add_image_handlers = function() {
       $('#large_image_overlay .large_image img').unbind('load');
     },
     fixed: false
-  });
+  });*/
 };
 
 function getThumbnails() {

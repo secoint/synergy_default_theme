@@ -2,10 +2,10 @@
 <div data-hook="inside_product_cart_form">
 <div id="cart_wrapper">
 
-  <% if product_price(@product) %>
+  <% if @product.price_in(current_currency) and !@product.price.nil? %>
     <div data-hook="product_price">
       <p class="prices">
-        <span class="price selling"><%= product_price(@product) %></span>
+        <span class="price selling"><%= @product.price_in(current_currency).display_price %></span>
       </p>
     </div>
   <% end %>
@@ -18,7 +18,7 @@
       <h2><%= t('variants') %></h2>
       <ul>
         <%  has_checked = false
-        @product.variants.active.each_with_index do |v,index|
+        @product.variants.active(current_currency).each_with_index do |v,index|
           next if v.option_values.empty? || (!v.in_stock && !Spree::Config[:show_zero_stock_products])
           checked = !has_checked && (v.in_stock || Spree::Config[:allow_backorders])
           has_checked = true if checked %>

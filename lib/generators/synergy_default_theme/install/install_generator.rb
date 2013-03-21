@@ -3,16 +3,11 @@ module SynergyDefaultTheme
     class InstallGenerator < Rails::Generators::Base
 
       def add_javascripts
-        append_file "app/assets/javascripts/store/all.js", "//= require store/jquery.jgrowl.min\n"+
-                                                           "//= require store/jquery.tools.min"
+        append_file "app/assets/javascripts/store/all.js", "//= require store/synergy_default_theme\n"
       end
 
       def add_stylesheets
-        inject_into_file "app/assets/stylesheets/store/all.css", 
-                          " *= require store/jquery.jgrowl\n"+
-                          " *= require store/style\n", 
-                          :before => /\*\//, 
-                          :verbose => true
+        inject_into_file "app/assets/stylesheets/store/all.css", " *= require store/synergy_default_theme\n", :before => /\*\//, :verbose => true
       end
 
       def add_migrations

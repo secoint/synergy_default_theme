@@ -1,0 +1,21 @@
+@mixin default_link{
+  color: $link_color;
+  text-decoration: underline;
+  &:hover{
+    color: darken($link_color, 15%);
+  }
+}
+@mixin gray_dark_link{
+  color: $gray_darker;
+  text-decoration: none;
+  &:hover{
+    color: $link_color;
+    text-decoration: underline;
+  }
+}
+
+@mixin border_radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+          border-radius: $radius;
+}

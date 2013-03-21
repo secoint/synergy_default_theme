@@ -1,0 +1,27 @@
+$gray_darker:                  #111111;
+$gray_dark:                    #333333;
+$gray:                         #808080;
+$gray_light:                   #C0C0C0;
+$gray_lighter:                 #E7EBEF;
+$blue:                         #2E6AB1;
+$blue_alt:                     #502559;
+$red:                          #FF0000;
+
+$body_background:              #FFF;
+$text_color:                   $gray_dark;
+$link_color:                   $blue;
+$error_color:                  $red;
+
+$base_font_family:             Verdana, sans-serif;
+$base_font_size:               12px;
+$base_line_height:             18px;
+$headings_font_family:         Verdana, serif;
+
+$base_width:                   1020px;
+$base_horizontal_padding:      19px;
+$content_width:                750px;
+$sidebar_gutter_width:         20px;
+$sidebar_width:                $base_width - $content_width - $sidebar_gutter_width;
+
+$product_columns_count:        3;
+$product_list_item_min_height: 230px;

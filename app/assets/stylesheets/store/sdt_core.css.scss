@@ -68,9 +68,14 @@ fieldset{
   margin-bottom: $base_line_height;
 }
 legend{
+  display: block;
+  width: 100%;
+  text-align: left;
   font-size: $base_font_size * 1.5;
   font-weight: bold;
+
   & + *{
+    -webkit-margin-top-collapse: separate;
     margin-top: $base_line_height;
   }
 }

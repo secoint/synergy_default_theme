@@ -8,6 +8,8 @@
 }
 .product-listing li{
   display: inline-block;
+  *display: inline;
+  *zoom: 1;
   vertical-align: top;
   width: $content_width / $product_columns_count - 2;
   min-height: $product_list_item_min_height;
@@ -66,8 +68,12 @@
 }
 .thumbnails{
   font-size: 0;
+  padding: 0;
+  list-style-type: none;
   li{
     display: inline-block;
+    *display: inline;
+    *zoom: 1;
     width: 42px;
     height: 42px;
     margin: 0 4px 4px 0;

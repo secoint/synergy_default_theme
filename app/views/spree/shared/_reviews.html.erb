@@ -3,18 +3,24 @@
   <h3><%= t(:review_header) %></h3>
 
   <div style="margin-bottom: 2em">
-    <a id="add_review_link" href="#"><%= t(:submit_your_review) %></a>
+    <% if !Spree::Reviews::Config[:require_login] || current_user  %>
+      <a id="add_review_link" href="#"><%= t(:submit_your_review) %></a>
+    <% else %>
+      <a class="add_review_require_login" href="#"><%= t(:submit_your_review) %></a>
+    <% end %>
   </div>
 
-  <div id="add_review_container" style="display: none">
-    <%= render 'reviews/form', { :product => @product, :review => Review.new } %>
-  </div>
+  <% if !Spree::Reviews::Config[:require_login] || current_user  %>
+    <div id="add_review_container" style="display: none">
+      <%= render 'spree/reviews/form', { :product => @product, :review => Spree::Review.new } %>
+    </div>
+  <% end %>
 
   <hr class="review_hr" />
 
   <a name="reviews_list"></a>
   <% for review in @product.reviews.approval_filter %>
-    <%= render :partial => 'shared/review', :locals => {:review => review} %>
+    <%= render :partial => 'spree/shared/review', :locals => {:review => review} %>
   <% end %>
 </div>
 

@@ -1,5 +1,5 @@
 <% stars = product.get_stars %>
 <div title="<%= txt_stars(stars[0]) %>" class="rating-stars-container">
-  <%= render :partial => "reviews/stars", :locals => {:stars => stars[0]} %>
+  <%= render :partial => "spree/reviews/stars", :locals => {:stars => stars[0]} %>
 </div>
 

@@ -17,6 +17,11 @@
       $(this).parent('div').slideUp();
       e.preventDefault();
     });
+
+    $('.add_review_require_login').click(function(e) {
+      e.preventDefault();
+      $.jGrowl('<%= t :login_to_submit_review %>', { header: '<%= t(:error).mb_chars.titleize %>', sticky: true, theme: 'error' });
+    });
     <% end %>
 
     add_image_handlers();
@@ -60,17 +65,23 @@
     <div id="product_description_menu">
       <table cellpadding="0" cellspacing="0" style="width: 300px">
         <% if defined?(SpreeReviews) %>
-        <tr>
-          <td><%= render 'shared/rating', :product => @product %></td>
-          <td><a href="#reviews_anc"><%= t(:review_header) %> (<%= @product.reviews.approved.count %>)</a></td>
-        </tr>
+          <tr>
+            <td><%= render 'spree/shared/rating', :product => @product %></td>
+            <td><a href="#reviews_anc"><%= t(:review_header) %> (<%= @product.reviews.approved.count %>)</a></td>
+          </tr>
         <% end %>
         <tr>
           <% if defined?(SpreeCompareProducts) %>
             <td><%= render 'compare' if @comparable_products %></td>
           <% end %>
           <% if defined?(SpreeReviews) %>
-            <td><a id="description_add_review_link" href="#reviews_anc"><%= t(:submit_your_review) %></a></td>
+            <td>
+              <% if !Spree::Reviews::Config[:require_login] || current_user  %>
+                <a id="description_add_review_link" href="#reviews_anc"><%= t(:submit_your_review) %></a>
+              <% else %>
+                <a class="add_review_require_login" href="#"><%= t(:submit_your_review) %></a>
+              <% end %>
+              </td>
           <% end %>
         </tr>
       </table>
@@ -114,7 +125,7 @@
           </div>
           <div>
             <div><%= link_to p.name, p %></div>
-            <div><%= render 'shared/rating', :product => p if defined?(SpreeReviews) %></div>
+            <div><%= render 'spree/shared/rating', :product => p if defined?(SpreeReviews) %></div>
             <div class="similar_product_price"><%= product_price(p) %></div>
           </div>
         </li>
@@ -134,4 +145,4 @@ $(function() {
 <% end %>
 
 <%= render 'taxons' %>
-<%= render 'shared/reviews' if defined?(SpreeReviews) %>
+<%= render 'spree/shared/reviews' if defined?(SpreeReviews) %>

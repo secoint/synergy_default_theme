@@ -1,0 +1,97 @@
+.product-listing .rating-stars-container {
+  height: 15px;
+  width: 85px;
+}
+
+#new_review{
+  label {
+    color: $blue_alt;
+    &.error {
+      display: block;
+      color: red;
+    }
+  }
+  input[type=text], textarea {
+    @include border_radius(5px);
+    border: 1px solid $gray_light;
+  }
+  textarea {
+    width: $content_width - 5;
+  }
+  #review_name {
+    width: 200px;
+  }
+  .review_title_field {
+    display: none;
+  }
+  .review_name_field {
+    width: 210px;
+    float: left;
+  }
+  .review_rating_field {
+    float: right;
+    width: $content_width - 240;
+  }
+  .review_review_field {
+    clear: both;
+    
+  }
+  .review_submit {
+    text-align: right;
+  }
+  
+  .star-rating-control {
+    margin-top: 0.4em;
+  }
+  .review_title_field {
+    margin: 0 0 0.5em
+  }
+}
+
+.review_fine_print {
+  clear: both;
+}
+
+#reviews div.review{
+  border-bottom: 1px solid #ddd;
+  .feedback_review {
+    display: none;
+  }
+  .title {
+    font-size: 12px !important;
+    font-weight: normal;
+  }
+  .star-rating-control {
+    vertical-align: middle;
+  }
+  .name {
+    margin: 0 2em;
+    color: #3d5a75;
+  }
+  .attribution {
+    color: #3d5a75;
+    font-weight: normal;
+    font-size: 12px !important;
+  }
+}
+#reviews{
+  .review_hr{
+    height: 1px;
+  }
+}
+
+.rating-stars-container {
+  display: inline-block;
+}
+
+.rating-stars-container .star-rating-control {
+  margin: 5px 0 0;
+}
+
+div.star-rating, div.star-rating a {
+  background: image_url('store/star.png') no-repeat;
+}
+
+div.star-rating-hover a {
+  background-position: 0 -16px;
+}

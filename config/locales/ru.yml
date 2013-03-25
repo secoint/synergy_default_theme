@@ -27,6 +27,7 @@ ru:
   product_properties: "Характеристики"
   recently_viewed_products: "Вы недавно смотрели"
   submit_your_review: "Добавить отзыв"
+  login_to_submit_review: "Авторизуйтесь, чтобы оставлять отзывы"
   jgrowl_closer_template: "Закрыть все"
   you_must_rate_the_product: "Вы должны оценить товар"
   notice: "Уведомление"

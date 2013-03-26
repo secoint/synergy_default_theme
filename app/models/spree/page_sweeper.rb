@@ -1,5 +1,5 @@
-class PageSweeper < ActionController::Caching::Sweeper
-  observe Page
+class Spree::PageSweeper < ActionController::Caching::Sweeper
+  observe Spree::Page
   def after_create(page)
     expire_cache_for(page)
   end

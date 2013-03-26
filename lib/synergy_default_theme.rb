@@ -17,8 +17,8 @@ module Spree
           Rails.env.production? ? require(c) : load(c)
         end
         
-        # Admin::PagesController.cache_sweeper :page_sweeper
-        # Admin::TrackersController.cache_sweeper :tracker_sweeper
+        Spree::Admin::PagesController.cache_sweeper Spree::PageSweeper
+        Spree::Admin::TrackersController.cache_sweeper Spree::TrackerSweeper
         
         if defined?(Spree::RecentlyViewed) && Spree::RecentlyViewed::Config.instance
           Spree::RecentlyViewed::Config.set :recently_viewed_products_max_count => 3

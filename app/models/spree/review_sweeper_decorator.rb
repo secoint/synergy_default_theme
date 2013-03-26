@@ -1,5 +1,5 @@
-if defined?(ReviewSweeper)
-  ReviewSweeper.class_eval do
+if defined?(Spree::ReviewSweeper)
+  Spree::ReviewSweeper.class_eval do
     private
     
     def expire_cache_for(review)

@@ -1,5 +1,5 @@
-class TrackerSweeper < ActionController::Caching::Sweeper
-  observe Tracker
+class Spree::TrackerSweeper < ActionController::Caching::Sweeper
+  observe Spree::Tracker
   def after_create(tracker)
     expire_cache_for(tracker)
   end

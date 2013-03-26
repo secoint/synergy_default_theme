@@ -143,3 +143,15 @@
   }
 }
 
+#product_like_buttons{
+  width: $content_width - 440;
+  & > div{
+    display: inline-block;
+    *display: inline-block;
+    *zoom: 1;
+    vertical-align: top;
+    margin: 0 5px 5px 0;
+    overflow: visible;
+    width: 150px;
+  }
+}

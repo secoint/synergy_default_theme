@@ -1,23 +1,40 @@
-<table class="index">
-  <tr>
-    <th><%= t('name') %></th>
+<table class="index sortable" id='listing_taxonomies' data-hook data-sortable-link="<%= update_positions_admin_taxonomies_url %>">
+  <colgroup>
     <% if defined?(SpreeCompareProducts) %>
-    <th><%= t('compare_products.comparable_container') %></th>
+      <col style="width: 80%">
+    <% else %>
+      <col style="width: 75%">
+      <col style="width: 5%">
     <% end %>
-    <th><%= t('activerecord.attributes.taxonomy.show_on_homepage').capitalize %></th>
-    <th></th>
-  </tr>
-  
-  <% for taxonomy in @taxonomies %>
-    <tr id="<%= dom_id taxonomy %>">
-      <td><%= taxonomy.name %></td>
+    <col style="width:5%">
+    <col style="width: 15%">
+  </colgroup>
+  <thead>
+    <tr data-hook="taxonomies_header">
+      <th><%= t('name') %></th>
       <% if defined?(SpreeCompareProducts) %>
-      <td><%= icon('tick') if taxonomy.comparable? %></td>
+        <th><%= t('compare_products.comparable_container') %></th>
       <% end %>
-      <td><%= icon('tick') if taxonomy.show_on_homepage? %></td>
-      <td class="actions">
-        <%= link_to_edit taxonomy.id %> &nbsp; <%= link_to_delete taxonomy %>
-      </td>
+      <th><%= t('activerecord.attributes.spree/taxonomy.show_on_homepage').capitalize %></th>
+      <th class="actions"></th>
     </tr>
-  <% end %>
+  </thead>
+  <tbody>
+    <% for taxonomy in @taxonomies %>
+      <tr id="<%= spree_dom_id taxonomy %>" data-hook="taxonomies_row" class="<%= cycle('odd', 'even')%>">
+        <td>
+          <span class="handle"></span>
+          <%= taxonomy.name %>
+        </td>
+        <% if defined?(SpreeCompareProducts) %>
+          <td style="text-align:center;"><%= icon('icon-ok') if taxonomy.comparable? %></td>
+        <% end %>
+        <td style="text-align:center;"><%= icon('icon-ok') if taxonomy.show_on_homepage? %></td>
+        <td class="actions">
+          <%= link_to_edit taxonomy.id, :no_text => true %>
+          <%= link_to_delete taxonomy, :no_text => true %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>

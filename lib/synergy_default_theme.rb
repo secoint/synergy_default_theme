@@ -12,6 +12,10 @@ module Spree
         Spree::SynergyDefaultTheme::Config = Spree::SynergyDefaultThemeConfiguration.new
       end
 
+      initializer :assets do |config|
+        Rails.application.config.assets.precompile += %w( store/product_simple.js )
+      end
+
       def self.activate
         Dir.glob(File.join(File.dirname(__FILE__), "../app/**/*_decorator*.rb")) do |c|
           Rails.env.production? ? require(c) : load(c)

@@ -2,8 +2,8 @@
   <%= t(:hello_user) %>, <%= link_to current_user.email, account_path %>!
   <%= link_to t('logout'), destroy_user_session_path, {:id => 'log_out_link'} %>
 <% else %>
-  <%= link_to t('login'), login_path, {:id => 'log_in_link', :rel => '#login_overlay'} %>
-  <div class="simple_overlay" id="login_overlay" style="display: none">
+  <%= link_to t('login'), login_path, :data => {:toggle => 'modal'}, :href => '#login_overlay' %>
+  <div class="modal" id="login_overlay" style="display:none">
     <% if defined?(SpreeSocial) %>
     <div class="login_social_bar">
       <div style="margin: 6px 0"><%= t(:sign_in_through_one_of_these_services) %>:</div>

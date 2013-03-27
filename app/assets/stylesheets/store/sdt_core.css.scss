@@ -406,6 +406,51 @@ div#jGrowl div.jGrowl-notification.error {
   background: #a50000;
 }
 
+// Login modal box
+// -----------------
+
+#login_overlay {
+  width: 510px;
+  padding: 10px;
+  background: image_url("store/login_bar_bg.png") repeat-x #e5e5e5;
+  input[type=email], input[type=password]{
+    width: 220px;
+    border: 1px solid $gray_light;
+    @include border_radius(5px);
+    padding: 2px 6px;
+  }
+  label {
+    font-weight: normal;
+  }
+  .login_social_bar {
+    width: 220px;
+    height: 100px;
+    float: right;
+    padding: 0 14px;
+    border-bottom: 1px solid $gray_light;
+  }
+
+  .login_link_bar {
+    width: 220px;
+    float: right;
+    clear: right;
+    padding: 10px 14px;
+  }
+
+  .login_form_bar {
+    margin-right: 250px;
+    padding: 6px 16px 2px 6px;
+    border-right: 1px solid $gray_light;
+    p{
+      margin-bottom: $base_line_height;
+    }
+  }
+
+  .login_form_bar input#user_remember_me {
+    vertical-align: middle;
+  }
+}
+
 // Misc
 // -----------------
 

@@ -3,7 +3,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'synergy_default_theme'
-  s.version     = '1.0.2'
+  s.version     = '1.3.0'
   s.summary     = 'Default theme for Synergy'
   s.description = 'Тема по умолчанию для платформы электронной коммерции Synergy, основанной на Spree'
   s.required_ruby_version = '>= 1.8.7'
@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.requirements << 'none'
 
 
-  s.add_dependency('synergy')
+  s.add_dependency('synergy', '~> 1.3.0')
   s.add_dependency('dalli', '~> 1.0.3')
 
 end

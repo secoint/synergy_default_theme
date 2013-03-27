@@ -84,6 +84,44 @@
   }
 }
 
+#large_image_overlay{
+  position: absolute;
+  .large_image {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+  }
+  .thumbs_gallery {
+    text-align: center;
+    ul {
+      list-style: none;
+      display: inline-block;
+      margin: .5em 0;
+      padding: 0;
+      width: 250px;
+    }
+    li{
+      width: 42px;
+      height: 42px;
+      margin-right: 4px;
+      margin-bottom: 4px;
+      min-height: 42px;
+      padding: 0;
+      float: none;
+      display: inline-block;
+      border: 1px solid silver;
+      background: white;
+    }
+    a{
+      height: 42px;
+      width: 42px;
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+    }
+  }
+}
+
 #product-description {
   display: block;
   width: $content_width - 220;

@@ -409,10 +409,16 @@ div#jGrowl div.jGrowl-notification.error {
 // Login modal box
 // -----------------
 
-#login_overlay {
-  width: 510px;
+.modal .modal-body{
   padding: 10px;
+  max-height: 1000px;
+}
+
+#login_overlay {
+  width: 530px;
+  margin-left: -255px;
   background: image_url("store/login_bar_bg.png") repeat-x #e5e5e5;
+  
   input[type=email], input[type=password]{
     width: 220px;
     border: 1px solid $gray_light;

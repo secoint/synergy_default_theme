@@ -4,22 +4,24 @@
 <% else %>
   <%= link_to t('login'), login_path, :data => {:toggle => 'modal'}, :href => '#login_overlay' %>
   <div class="modal" id="login_overlay" style="display:none">
-    <% if defined?(SpreeSocial) %>
-    <div class="login_social_bar">
-      <div style="margin: 6px 0"><%= t(:sign_in_through_one_of_these_services) %>:</div>
-      <div style="margin: 6px 0">
-        <% Spree::AuthenticationMethod.where(:environment => ::Rails.env).each do |user| %>
-          <%= link_to(image_tag("store/social/#{user.provider}_32.png", :size => "32x32", :alt => "#{user.provider}"), "http://#{Spree::Config[:site_url]}/users/auth/#{user.provider}", :title => t(:sign_in_with_provider, :provider => user.provider)) if user.active %>
-        <% end %>
+    <div class="modal-body">
+      <% if defined?(SpreeSocial) %>
+      <div class="login_social_bar">
+        <div style="margin: 6px 0"><%= t(:sign_in_through_one_of_these_services) %>:</div>
+        <div style="margin: 6px 0">
+          <% Spree::AuthenticationMethod.where(:environment => ::Rails.env).each do |user| %>
+            <%= link_to(image_tag("store/social/#{user.provider}_32.png", :size => "32x32", :alt => "#{user.provider}"), "http://#{Spree::Config[:site_url]}/users/auth/#{user.provider}", :title => t(:sign_in_with_provider, :provider => user.provider)) if user.active %>
+          <% end %>
+        </div>
       </div>
-    </div>
-    <% end %>
-    <div class="login_link_bar">
-      <div style="padding: 6px 0"><%= link_to t("create_a_new_account"), signup_path %></div>
-      <div style="padding: 6px 0"><%= link_to t("forgot_password"), new_user_password_path %></div>
-    </div>
-    <div class="login_form_bar">
-      <%= render :partial => "spree/shared/login" %>
+      <% end %>
+      <div class="login_link_bar">
+        <div style="padding: 6px 0"><%= link_to t("create_a_new_account"), signup_path %></div>
+        <div style="padding: 6px 0"><%= link_to t("forgot_password"), new_user_password_path %></div>
+      </div>
+      <div class="login_form_bar">
+        <%= render :partial => "spree/shared/login" %>
+      </div>
     </div>
   </div>
 <% end %>

@@ -33,3 +33,10 @@ ru:
   notice: "Уведомление"
   sign_in_through_one_of_these_services: "Войти через аккаунт в соц.сетях"
   sign_in_with: "Войти через %{provider}"
+  views:
+    pagination:
+      first: "&laquo; "
+      last: " &raquo;"
+      previous: " &lsaquo; пред."
+      next: "след. &rsaquo; "
+      truncate: "..."

@@ -193,3 +193,12 @@
     width: 150px;
   }
 }
+
+.pagination{
+  clear: both;
+  text-align: right;
+  margin-bottom: $base_line_height * 2;
+  span{
+    margin: 0 1px;
+  }
+}

@@ -1,0 +1,13 @@
+#login_overlay{
+  .login_social_bar {
+    width: 220px;
+    height: 100px;
+    float: right;
+    padding: 0 14px;
+    border-bottom: 1px solid $gray_light;
+  }
+}
+
+div[data-hook="login_extras"] + h2{
+  margin: $base_line_height * 2 0 $base_line_height / 2 0;
+}

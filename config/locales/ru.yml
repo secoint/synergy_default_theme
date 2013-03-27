@@ -31,5 +31,5 @@ ru:
   jgrowl_closer_template: "Закрыть все"
   you_must_rate_the_product: "Вы должны оценить товар"
   notice: "Уведомление"
-  sign_in_through_one_of_these_services: "Войдите через свой аккаунт в соц.сетях"
-  sign_in_with_provider: "Войти через %{provider}"
+  sign_in_through_one_of_these_services: "Войти через аккаунт в соц.сетях"
+  sign_in_with: "Войти через %{provider}"

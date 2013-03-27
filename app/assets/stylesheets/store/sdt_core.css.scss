@@ -428,13 +428,6 @@ div#jGrowl div.jGrowl-notification.error {
   label {
     font-weight: normal;
   }
-  .login_social_bar {
-    width: 220px;
-    height: 100px;
-    float: right;
-    padding: 0 14px;
-    border-bottom: 1px solid $gray_light;
-  }
 
   .login_link_bar {
     width: 220px;
@@ -460,8 +453,21 @@ div#jGrowl div.jGrowl-notification.error {
 // Misc
 // -----------------
 
-#existing-customer, #new-customer, #forgot-password{
+#content > #existing-customer, #content > #new-customer, #forgot-password{
   h6{
     @extend h1;
+  }
+}
+#registration{
+  h2, h6{
+    @extend h2;
+    margin-top: 0;
+  }  
+  #account, #guest_checkout{
+    width: 49%;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: top;
   }
 }
